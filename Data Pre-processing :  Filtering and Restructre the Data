@@ -1,0 +1,26 @@
+# used package
+import os 
+import xlrd 
+from gurobipy import *
+import pandas
+import pandas as pd
+import numpy as np
+
+# import the data form excel file.
+
+os.chdir(r'F:\xxxwhere your file are ')
+book = xlrd.open_workbook(os.path.expanduser(r'2019年秋季学期课表.xlsx'))
+sh = book.sheet_by_name("sheet0") 
+
+
+# imported 4 excel files.
+data2019=pd.read_excel('2019年秋季学期课表.xlsx',sheet_name='sheet0')
+data2018=pd.read_excel('2018年秋季学期课表.xlsx',sheet_name='sheet0')
+data2017=pd.read_excel('2017年秋季学期课表.xlsx',sheet_name='sheet0')
+data2016=pd.read_excel('2016年秋季学期课表.xlsx',sheet_name='sheet0')
+
+#　Birds view of the imported data by using the jupyter and select by point out the 'column name'.
+
+data1=data2019[['courseID','enrollments','星期节次']]
+
+# We want to restructre the data by course timeslots like 
